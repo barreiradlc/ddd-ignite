@@ -1,5 +1,11 @@
 import { randomUUID } from "node:crypto"
 
+type QuestionProps = {
+  authorId: string,    
+  title: string,
+  content: string,
+}
+
 class Question {  
   public id: string
   public authorId: string
@@ -7,15 +13,16 @@ class Question {
   public content: string
 
   constructor(
-    authorId: string,    
-    title: string,
-    content: string,
+    props: QuestionProps,
     id?: string
   ) {
-    this.id = id ?? randomUUID()
-    this.authorId = authorId    
+    const { title, content, authorId } = props
+
     this.title = title
     this.content = content
+    this.authorId = authorId
+    
+    this.id = id ?? randomUUID()    
   }
 }
 

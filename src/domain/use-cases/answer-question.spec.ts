@@ -4,7 +4,7 @@ import { AnswerQuestion, AnswerQuestionUseCaseDTO } from "./answer-question"
 test('create an answer', () => {
   const createAnswerDTO: AnswerQuestionUseCaseDTO = {
     questionId: '1',
-    InstructorId: '1',
+    instructorId: '1',
     content: "new answer"
   }
   const answerQuestion = new AnswerQuestion()

@@ -1,14 +1,18 @@
 import { Answer } from "../entities/answer"
 
 type AnswerQuestionUseCaseDTO = {
-  InstructorId: string
+  instructorId: string
   questionId: string
   content: string
 }
 
 class AnswerQuestion{
-  execute({ InstructorId, questionId, content }: AnswerQuestionUseCaseDTO) {
-    const answer = new Answer(content, InstructorId, questionId)
+  execute({ instructorId, questionId, content }: AnswerQuestionUseCaseDTO) {
+    const answer = new Answer({
+      authorId: instructorId,
+      questionId,
+      content    
+    })
 
     return answer
   }
