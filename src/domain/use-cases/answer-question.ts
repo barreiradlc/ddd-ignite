@@ -8,7 +8,7 @@ type AnswerQuestionUseCaseDTO = {
 
 class AnswerQuestion{
   execute({ InstructorId, questionId, content }: AnswerQuestionUseCaseDTO) {
-    const answer = new Answer(content)
+    const answer = new Answer(content, InstructorId, questionId)
 
     return answer
   }
